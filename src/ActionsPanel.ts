@@ -125,7 +125,7 @@ export class ActionsPanel {
   private _getHtmlForWebview(webview: vscode.Webview) {
     // // And the uri we use to load this script in the webview
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "media", "main.js")
+      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/HelloWorld.js")
     );
 
     // Uri to load styles into webview
@@ -161,11 +161,6 @@ export class ActionsPanel {
 				<link href="${stylesMainUri}" rel="stylesheet">
 			</head>
       <body>
-      <h1>
-      Hello world
-      </h1>
-      <input/>
-      <button>Sup</button>
 			</body>
       <script src="${scriptUri}" nonce="${nonce}">
 			</html>`;

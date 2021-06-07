@@ -11,10 +11,32 @@
 	],
 	"activationEvents": [
 		"onCommand:vsactions.helloWorld",
-		"onCommand:vsactions.askQuestion"
+		"onCommand:vsactions.askQuestion",
+		"onCommand:vsactions.refresh",
+		"onView:vsactions-sidebar"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "vsactions-sidebar-view",
+					"title": "VSActions",
+					"icon": "media/rocket.svg"
+				}
+			]
+		},
+		"views": {
+			"vsactions-sidebar-view": [
+				{
+					"type": "webview",
+					"id": "vsactions-sidebar",
+					"name": "VSActions",
+					"icon": "media/rocket.svg",
+					"contextualTitle": "VSActions"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "vsactions.helloWorld",
@@ -24,6 +46,11 @@
 				"command": "vsactions.askQuestion",
 				"category": "VSActions",
 				"title": "Answer Question!"
+			},
+			{
+				"command": "vsactions.refresh",
+				"category": "VSActions",
+				"title": "Refresh"
 			}
 		]
 	},
@@ -54,7 +81,7 @@
 		"glob": "^7.1.6",
 		"mocha": "^8.2.1",
 		"rollup": "^2.51.0",
-		"rollup-plugin-svelte": "^7.1.0",
+		"rollup-plugin-svelte": "^6.0.0",
 		"rollup-plugin-terser": "^7.0.2",
 		"svelte": "^3.38.2",
 		"svelte-check": "^2.1.0",

@@ -20,12 +20,15 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand('vsactions.refresh', () => {
-			ActionsPanel.kill();
-			ActionsPanel.createOrShow(context.extensionUri);
-			setTimeout(() => {
-				vscode.commands.executeCommand("workbench.action.webview.openDeveloperTools");
-			}, 500);
+		vscode.commands.registerCommand('vsactions.refresh', async () => {
+			// ActionsPanel.kill();
+			// ActionsPanel.createOrShow(context.extensionUri);
+			await vscode.commands.executeCommand("workbench.action.closeSidebar");
+			vscode.commands.executeCommand("workbench.view.extension.vsactions-sidebar-view");
+			
+			// setTimeout(() => {
+			// 	vscode.commands.executeCommand("workbench.action.webview.openDeveloperTools");
+			// }, 500);
 		})
 	);
 

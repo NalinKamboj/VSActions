@@ -8,6 +8,8 @@ import { SidebarProvider } from './SidebarProvider';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
+	// TODO Implement TreeView!
+
 	const sidebarProvider = new SidebarProvider(context.extensionUri);
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider("vsactions-sidebar", sidebarProvider)

@@ -1,0 +1,11 @@
+test:
+  - any: ["src/test/*"]
+
+utilities:
+  - any: ["src/utils/*"]
+
+ui:
+  - any: ["webviews/*"]
+
+core:
+  - any: ["src/*.(js|ts)"]

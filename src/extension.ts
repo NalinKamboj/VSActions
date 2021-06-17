@@ -87,6 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
 	if (api) {
 		console.log("Git State: " + api.state);
 		console.log("Git Repos:", api.repositories);
+		console.log(api.repositories[0].state.remotes);
 	}
 }	
 

@@ -13,8 +13,7 @@
     "onCommand:vsactions.helloWorld",
     "onCommand:vsactions.askQuestion",
     "onCommand:vsactions.refresh",
-    "onView:vsactions-sidebar",
-    "onView:outliner.outline"
+    "onView:vsactions-sidebar"
   ],
   "main": "./dist/extension.js",
   "contributes": {

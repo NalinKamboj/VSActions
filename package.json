@@ -13,21 +13,21 @@
     "onCommand:vsactions.helloWorld",
     "onCommand:vsactions.askQuestion",
     "onCommand:vsactions.refresh",
-    "onView:vsactions-sidebar"
+    "onView:workflows"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "vsactions-sidebar-view",
+          "id": "vsactions-container",
           "title": "VSActions",
           "icon": "media/rocket.svg"
         }
       ]
     },
     "views": {
-      "vsactions-sidebar-view": [
+      "vsactions-container": [
         {
           "id": "workflows",
           "name": "Workflows",

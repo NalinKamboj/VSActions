@@ -8,15 +8,16 @@ import { WorkflowDataProvider } from "./WorkflowDataProvider";
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  console.log("TEST asdasda");
-  const sidebarProvider = new SidebarProvider(context.extensionUri);
-  context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider(
-      "vsactions-sidebar",
-      sidebarProvider
-    )
-  );
-  console.log("Test");
+
+	// OLD SIDEBAR... might be needed later
+  // const sidebarProvider = new SidebarProvider(context.extensionUri);
+  // context.subscriptions.push(
+  //   vscode.window.registerWebviewViewProvider(
+  //     "vsactions-sidebar",
+  //     sidebarProvider
+  //   )
+  // );
+
   context.subscriptions.push(
     vscode.commands.registerCommand("vsactions.helloWorld", () => {
       ActionsPanel.createOrShow(context.extensionUri);
@@ -38,21 +39,21 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  //   context.subscriptions.push(
-  //     vscode.commands.registerCommand("vsactions.askQuestion", async () => {
-  //       const answer = await vscode.window.showInformationMessage(
-  //         "How was your day?",
-  //         "Good",
-  //         "Bad"
-  //       );
+    context.subscriptions.push(
+      vscode.commands.registerCommand("vsactions.askQuestion", async () => {
+        const answer = await vscode.window.showInformationMessage(
+          "How was your day?",
+          "Good",
+          "Bad"
+        );
 
-  //       if (answer === "Bad") {
-  //         vscode.window.showInformationMessage("Sorry to hear that :(");
-  //       } else {
-  //         console.log(answer);
-  //       }
-  //     })
-  //   );
+        if (answer === "Bad") {
+          vscode.window.showInformationMessage("Sorry to hear that :(");
+        } else {
+          console.log(answer);
+        }
+      })
+    );
 
   // Register data providers
   console.log("Data Registered...");

@@ -35,7 +35,7 @@ import {
 //   }
 // }
 
-async function getDefaultGetApi(): Promise<DefaultGitApi | undefined> {
+export async function getDefaultGitApi(): Promise<DefaultGitApi | undefined> {
   try {
     const extension = extensions.getExtension(
       "vscode.git"
@@ -49,5 +49,3 @@ async function getDefaultGetApi(): Promise<DefaultGitApi | undefined> {
   } catch {}
   return undefined;
 }
-
-export default [getDefaultGetApi];

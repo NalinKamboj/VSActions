@@ -3,6 +3,7 @@
 import { ExtensionContext, commands, extensions, window } from "vscode";
 import { ActionsPanel } from "./ActionsPanel";
 import { SidebarProvider } from "./SidebarProvider";
+import { Messages } from "./utils/messages";
 
 // Testing
 import { API as GitAPI, GitExtension } from "./@types/git";
@@ -71,13 +72,14 @@ export function activate(context: ExtensionContext) {
 
       switch (token) {
         case undefined:
-          window.showInformationMessage("Token set cancelled");
+          void Messages.showTokenCancelledWarningMessage();
           break;
         case null:
-          window.showInformationMessage("Please enter a token");
+          void Messages.showGenericErrorMessage("Please enter a token.");
           break;
         case "":
-          window.showInformationMessage("Empty bitch");
+          void Messages.showEmptyTokenErrorMessage();
+          break;
         default:
           // TODO Use regex match for token validity
           const prevToken = await context.workspaceState.get("ghToken");

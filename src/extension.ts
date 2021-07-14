@@ -86,18 +86,21 @@ export function activate(context: ExtensionContext) {
           prevToken === undefined
             ? window.showInformationMessage("Old token not defined")
             : window.showInformationMessage("Old Token:" + prevToken);
-          window.showInformationMessage("Not Empty bitch");
+          window.showInformationMessage("Token value - " + token);
           await context.workspaceState.update("ghToken", token);
       }
     })
   );
 
   const gitExtension = extensions.getExtension<GitExtension>("vscode.git");
+
   var api;
   if (gitExtension !== undefined) {
+    void Messages.showGenericInformationMessage("Git extension IS defined");
     api = gitExtension.exports.getAPI(1);
   }
-  if (api) {
+  if (api != undefined) {
+    void Messages.showGenericInformationMessage("API IS defined");
     console.log("Git State: " + api.state);
     console.log("Git Repos:", api.repositories);
     console.log(api.repositories[0].state.remotes);
